@@ -49,6 +49,7 @@ components:
         telephone:
           type: int
     Address:
+      properties:
         street:
           type: string
         locality:
