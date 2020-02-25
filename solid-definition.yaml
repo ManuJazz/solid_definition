@@ -48,7 +48,7 @@ components:
         address:
           $ref: '#/components/schemas/Address'
         telephone:
-          type: int
+          type: integer
         email:
           type: string
     Address:
@@ -61,7 +61,7 @@ components:
         region:
           type: string
         postal_code:
-          type: int
+          type: integer
         country:
           type: string
   responses:
