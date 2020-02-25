@@ -1,0 +1,68 @@
+
+openapi: 3.0.1
+info:
+  title: Integration of Solid in a Mobile Centric architecture
+  description: This application integrates Solid in a Mobile Centric Architecture.
+  version: '1.0'
+  termsOfService: ''
+  contact:
+    name: Integration Solide with Mobile Centric Architecture
+    url: ''
+    email: manuel@unex.es
+paths:
+  /card:
+    get:
+      tags:
+        - Card
+      summary: Gets the user's profile
+      description: The user's profile
+      operationId: getCard
+      parameters:
+        - name: subdomain
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+components:
+  schemas:
+    Card:
+      properties:
+        subdomain: 
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+        organization:
+          type: string
+        adress:
+          type: Address
+        telephone:
+          type: int
+    Address:
+        street:
+          type: string
+        locality:
+          type: string
+        region:
+          type: string
+        postal_code:
+          type: int
+  responses:
+    404NotFound:
+      description: Not found response
+      content:
+        text/plain:
+          schema:
+            title: Endpoint not found
+            type: string
+            example: Not found
