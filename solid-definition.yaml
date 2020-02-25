@@ -35,6 +35,7 @@ paths:
 components:
   schemas:
     Card:
+      type: object
       properties:
         subdomain: 
           type: string
@@ -44,11 +45,14 @@ components:
           type: string
         organization:
           type: string
-        adress:
-          type: Address
+        address:
+          $ref: '#/components/schemas/Address'
         telephone:
           type: int
+        email:
+          type: string
     Address:
+      type: object
       properties:
         street:
           type: string
@@ -58,6 +62,8 @@ components:
           type: string
         postal_code:
           type: int
+        country:
+          type: string
   responses:
     404NotFound:
       description: Not found response
